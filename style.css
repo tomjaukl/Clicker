@@ -106,10 +106,10 @@ nav button {
 #profileContainer {
     position: absolute;
     right: 0;
-    top: 6vh;
-    background-color: red;
+    top: 5vh;
     height: 10vh;
     width: 10vh;
+    cursor: pointer;
 }
 #heroInfo {
     position: absolute;
@@ -162,5 +162,11 @@ nav button {
     float: right;
     margin-top: -5vh;
     margin-right: -2vh;
+}
+#gameContainer {
+    width: 100%;
+    background-color: violet;
+    display: flex;
+    justify-content: space-between;
 }
   

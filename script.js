@@ -14,48 +14,61 @@ function chooseCharacter(character) {
 function formName(character) {
     const form = document.createElement('form');
     form.id = 'heroInfo';
+    form.method = 'dialog';
+
+    // Append the form to the DOM before adding event listeners
     document.body.appendChild(form);
+
     const exitButton = document.createElement('button');
+    exitButton.type = 'button'; 
     exitButton.textContent = 'Exit';
     exitButton.id = 'exitButton';
     exitButton.addEventListener('click', function(event) {
+        event.preventDefault(); 
         form.remove(); 
     });
     form.appendChild(exitButton);
+
     const warning = document.createElement('h2');
     warning.style.textAlign = 'center';
-    warning.innerText = 'You cant change your name later!\n (cause I am lazy)';
+    warning.innerText = 'You can’t change your name later!\n (cause I am lazy)';
+    form.appendChild(warning);
+
     const nameInputContainer = document.createElement('div');
     nameInputContainer.id = 'nameInputContainer';
     form.appendChild(nameInputContainer);
+
     const nameInput = document.createElement('input');
     nameInput.type = 'text';
     nameInput.id = 'nameInput';
     nameInput.placeholder = 'Enter your name';
+    nameInputContainer.appendChild(nameInput);
+    nameInput.focus();
+
     const submit = document.createElement('button');
-    submit.type = 'submit';
+    submit.type = 'button';
     submit.textContent = 'Submit';
     submit.id = 'submitButton';
-    submit.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent form submission
+    nameInputContainer.appendChild(submit);
+
+    // Add the submit event listener after the form is appended to the DOM
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
         const Name = nameInput.value.trim();
+    
         if (Name === '') {
-            event.preventDefault();
-            Notification('Could you please... I dont know... ENTER SOMETHING?');
-        } else if (Name == 'a'){
-            event.preventDefault();
+            Notification('Could you please... I don’t know... ENTER SOMETHING?');
+        } else if (Name === 'a') {
             Notification('This name is stupid!');
-        } else if (Name == "john"){
-            Notification('You cant be serious...');
+        } else if (Name === 'john') {
+            Notification('You can’t be serious...');
         } else {
             const hrdina = new character(Name);
             localStorage.setItem('hrdina', JSON.stringify(hrdina));
+            console.log(hrdina);
             window.location.href = 'game.html';
         }
     });
-    nameInputContainer.appendChild(warning);
-    nameInputContainer.appendChild(nameInput);
-    nameInputContainer.appendChild(submit);
 
 }
 function Notification(message) {
@@ -71,4 +84,7 @@ function Notification(message) {
     setTimeout(() => {
         notification.remove();
     }, 4000);
+}
+function ClickCount() {
+    
 }
