@@ -1,18 +1,18 @@
-class Pablo{
+class Dealer{
     constructor(name, picture){
         this.name = name;
-        this.picture = picture;
+        this.picture = 'img/pablo.png';
     }
 }
 class Hamster{
     constructor(name, picture){
         this.name = name;
-        this.picture = picture;
+        this.picture = 'img/hamster.png';
     }
 }
 class Cat{
     constructor(name, picture){
         this.name = name;
-        this.picture = picture;
+        this.picture = 'img/cat.png';
     }
 }
