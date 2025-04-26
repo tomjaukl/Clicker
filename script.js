@@ -69,6 +69,9 @@ function formName(character) {
             window.location.href = 'game.html';
         }
     });
+    submit.addEventListener('click', function() {
+        form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+    });
 
 }
 function Notification(message) {
@@ -86,5 +89,23 @@ function Notification(message) {
     }, 4000);
 }
 function ClickCount() {
+    const hrdina = JSON.parse(localStorage.getItem('hrdina'));
+    Notification('You clicked ' + hrdina.clicks + ' times!');
+}
+function AddClick(){
+    const hrdina = JSON.parse(localStorage.getItem('hrdina'));
+    hrdina.clicks += 1;
+    localStorage.setItem('hrdina', JSON.stringify(hrdina));
+    console.log(hrdina);
+}
+function AddCash() {
+    AddClick()
+    const hrdina = JSON.parse(localStorage.getItem('hrdina'));
+    hrdina.cash += (hrdina.AddCash*hrdina.level); // Add cash based on AddCash value
+    document.getElementById('money').innerHTML = hrdina.cash + ' $';
+    console.log(hrdina); // Check if cash and AddCash are numbers
+    localStorage.setItem('hrdina', JSON.stringify(hrdina));
+}
+function AddXp(){
     
 }

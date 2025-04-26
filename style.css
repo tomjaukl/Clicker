@@ -168,5 +168,15 @@ nav button {
     background-color: violet;
     display: flex;
     justify-content: space-between;
+    height: 80vh;
+}
+#dealerButton{
+    background-image: url('img/BabiccinaVolba.png');
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border: none;
+    width: 15vh;
+    height: 20vh;
 }
   
