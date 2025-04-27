@@ -96,7 +96,6 @@ nav{
 }
 nav button {
     text-decoration: none;
-    background-color: orange;
     padding: .5vh 2vh;
     border-radius: 10px;
     border: none;
@@ -179,4 +178,23 @@ nav button {
     width: 15vh;
     height: 20vh;
 }
-  
+#store{
+    background-color: yellow;
+    width: 30vh;
+}
+.storeItems{
+    display: flex;
+    background-color: red;
+    justify-content: space-between;
+    height: 6vh;
+}
+#passiveIncome{
+    background-image: url('img/store/PassiveIncome.png');
+    background-size: cover;
+    width: 10vh;
+    background-position: center;
+}
+.purchase{
+    background-color: green;
+    width: 7vh;
+}

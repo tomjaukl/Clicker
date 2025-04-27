@@ -92,20 +92,36 @@ function ClickCount() {
     const hrdina = JSON.parse(localStorage.getItem('hrdina'));
     Notification('You clicked ' + hrdina.clicks + ' times!');
 }
-function AddClick(){
+function AddEverything(){
     const hrdina = JSON.parse(localStorage.getItem('hrdina'));
     hrdina.clicks += 1;
+    AddCash(hrdina);
+    hrdina.experience += 1;
+    AddLevel(hrdina);
     localStorage.setItem('hrdina', JSON.stringify(hrdina));
+    DisplayStats();
     console.log(hrdina);
+
 }
-function AddCash() {
-    AddClick()
-    const hrdina = JSON.parse(localStorage.getItem('hrdina'));
-    hrdina.cash += (hrdina.AddCash*hrdina.level); // Add cash based on AddCash value
+document.addEventListener('keydown', function (e) {
+    if (e.code === 'Space') {
+        e.preventDefault(); // Prevent the default spacebar behavior (e.g., scrolling)
+        AddEverything(); // Call the AddEverything function
+    }
+});
+function AddCash(hrdina) {
+    hrdina.cash += (hrdina.AddCash*hrdina.level); 
     document.getElementById('money').innerHTML = hrdina.cash + ' $';
-    console.log(hrdina); // Check if cash and AddCash are numbers
-    localStorage.setItem('hrdina', JSON.stringify(hrdina));
 }
-function AddXp(){
-    
+function DisplayStats() {
+    const hrdina = JSON.parse(localStorage.getItem('hrdina'));
+    document.getElementById('money').innerHTML = hrdina.cash + ' $';
+    document.getElementById('level').innerHTML =  hrdina.level + ' level';
+    document.getElementById('clicks').innerHTML = hrdina.clicks;
+}
+function AddLevel(hrdina){
+    if (hrdina.experience % 100 === 0){
+        hrdina.level += 1;
+        Notification('You leveled up! You are now level ' + hrdina.level);
+    }
 }
