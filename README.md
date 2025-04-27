@@ -1,1 +1,1 @@
-https://tomjaukl.github.io/Clicker/
+Basic clicker game 
