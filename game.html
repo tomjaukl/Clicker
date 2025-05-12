@@ -6,17 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="DisplayStats()">
+<body onload="DisplayStats(), CountTime()">
     <nav>
         <button onclick="window.location.href = 'index.html'">Choose Character</button>
         <button onclick="window.location.href = 'about.html'">About</button>
         <button onclick="window.location.href = 'game.html'">Game</button>
         <button>Settings</button>
+        <button onclick="Save()">Save</button>
+        <input type="file" id="loadFileInput" style="display: none;" onchange="Load(event)">
+        <button onclick="document.getElementById('loadFileInput').click()">Load</button>
     </nav>
     <div onclick="ClickCount()" id="profileContainer"></div>
     <h1 style="font-size: 4vh;" id="greed"></h1>
     <div id="gameContainer">
         <div id="stats">
+            <h1 id="gameCounter"></h1>
             <h1>Stats</h1>
             <h1 id="money"></h1>
             <h1 id="level">Level</h1>
@@ -24,17 +28,30 @@
         <div onclick="AddEverything()" id="dealerButton"></div>
         <div id="store">
             <h1 style="text-align: center; margin: 10px 0 0 0;">Store</h1>
-            <div class="storeItems">
+            <div id="passiveIncomeContainer" class="storeItems">
                 <div id="passiveIncome"></div>
                 <div>
                     <p>Passive Income</p>
                     <p id="pricePassiveIncome"></p>
                 </div>
-                <button class="purchase">Buy</button>
+                <button onclick="BeginPassiveIncome()" id="purchasePassiveIncome">NOT WORKING</button>
             </div>
+            <button class="buttons" onclick="doubleClick()">
+                doubleClick
+            </button>
+            <button class="buttons" id="buyCritical" onclick="CriticalStrikeEnable()">
+                CriticalStrike Buy
+            </button>
+            <button class="buttons" onclick="UpgradeCriticalStrike()">
+                upgradeCriticalStrike
+            </button>
+            <button class="buttons" id="buyPassive" onclick="PassiveIncome()">
+                PassiveIncome
+            </button>
         </div>
     </div>
     <script src="game.js"></script>
+    <script src="Items.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -180,7 +180,7 @@ nav button {
 }
 #store{
     background-color: yellow;
-    width: 30vh;
+    width: 40vh;
 }
 .storeItems{
     display: flex;
@@ -197,4 +197,7 @@ nav button {
 .purchase{
     background-color: green;
     width: 7vh;
+}
+.buttons{
+    height: 100px;
 }
